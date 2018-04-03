@@ -2,38 +2,28 @@
 require_once 'Conexao.php';
 abstract class Crud extends Conexao
 {
-	public $tabela = 'dicionario';
+	protected $tabela ;
 	abstract public function gravar($entidade);
 //	abstract public function atualizar($id);
 //	abstract public function deletar($id);
 
+function __construct($nomeTabela) {
+
+	$this->tabela = $nomeTabela;
+
+}
+
 
 public function ProcuraPorId($id)
 	{
-		$sql = "SELECT * FROM dicionario WHERE id = :id";
+		$sql = "SELECT * FROM $this->tabela WHERE id = :id";
 		$stmt = Conexao::prepare($sql);
 		$stmt->bindParam(':id', $id);
 		$stmt->execute();
 		return $stmt->fetch();
 	}
 
-	public function ProcuraPalavraPortugues($palavraIngles)
-	{
-		$sql = "SELECT * FROM $this->tabela WHERE palavraIngles = :palavraPortugues";
-		$stmt = Conexao::prepare($sql);
-		$stmt->bindParam(':palavraPortugues', $palavraPortugues);
-		$stmt->execute();
-		return $stmt->fetch();
-	}
-
-	public function ProcuraPalavraIgles($palavraIngles)
-	{
-		$sql = "SELECT * FROM $this->tabela WHERE palavraIngles = :palavraIngles";
-		$stmt = Conexao::prepare($sql);
-		$stmt->bindParam(':palavraIngles', $palavraIngles);
-		$stmt->execute();
-		return $stmt->fetch();
-	}
+	
 
 	public function ListarTodos()
 	{
@@ -61,11 +51,13 @@ public function ProcuraPorId($id)
 	
 	}
 
-	 public function setTabela()
+	public function ProcuraTabela($tabela)
     {
-        return $this->tabela;
+        $sql = "SHOW TABLES LIKE '$tabela'";
+        $stmt = Conexao::prepare($sql);
+        $stmt->execute();
+        return $stmt->fetch();
     }
-
 
 
 

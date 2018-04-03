@@ -6,6 +6,7 @@ class Respondidas {
     private $correta;
     private $idPalavraDicionario;
     private $respostaUsuario;
+    private $tempo;
 
 
     /**
@@ -86,6 +87,26 @@ class Respondidas {
     public function setIdPalavraDicionario($idPalavraDicionario)
     {
         $this->idPalavraDicionario = $idPalavraDicionario;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of tempo
+     */ 
+    public function getTempo()
+    {
+        return $this->tempo;
+    }
+
+    /**
+     * Set the value of tempo
+     *
+     * @return  self
+     */ 
+    public function setTempo($tempo)
+    {
+        $this->tempo = $tempo;
 
         return $this;
     }

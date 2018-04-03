@@ -4,6 +4,7 @@ class Dicionario {
 private $id;
 private $palavraIngles;
 private $palavraPortugues;
+private $dificuldade;
 
 
 
@@ -63,6 +64,26 @@ return $this->palavraPortugues;
 public function setPalavraPortugues($palavraPortugues)
 {
 $this->palavraPortugues = $palavraPortugues;
+
+return $this;
+}
+
+/**
+ * Get the value of dificuldade
+ */ 
+public function getDificuldade()
+{
+return $this->dificuldade;
+}
+
+/**
+ * Set the value of dificuldade
+ *
+ * @return  self
+ */ 
+public function setDificuldade($dificuldade)
+{
+$this->dificuldade = $dificuldade;
 
 return $this;
 }

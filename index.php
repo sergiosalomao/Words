@@ -19,16 +19,25 @@
 
 </head>
 <body>
+<?php
+require_once 'controller/RespondidasDAO.php';
+$tabela = 'respondidas';
+$dao = new RespondidasDAO($tabela);
+$dao->limpaTabela();
+//echo 'Banco de dados preparado.';
+?>
+
+
     <div class="container">
 
-   <?php include 'view/pages/menu.php'?>
+   <?php include 'view/pages/menu.php' ?>
  
     <!-- Logo Central -->
         <div class="centraliza">
             <img src="view/resources/img/images.png">
         </div>
 
-<?php include 'view/pages/rodape.php'?>
+<?php include 'view/pages/rodape.php' ?>
     
 
   <!-- arquivos Boootstrap -->

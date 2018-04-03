@@ -21,7 +21,8 @@
     <script src="../resources/js/paraJogo.js"></script>
     <script src="../resources/js/preparaJogo.js"></script>
     <script src="../resources/js/gameOver.js"></script>
-    <script src="../resources/js/traduzPalavra.js"></script>
+    <script src="../resources/js/traduzir.js"></script>
+    <script src="../resources/js/escreveAutomatico.js"></script>
     
 
 

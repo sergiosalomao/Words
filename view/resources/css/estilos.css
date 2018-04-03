@@ -1,5 +1,5 @@
 html, body{
-    background:#b5b8ba;
+    background:white;
 }
 
 ::selection { background: #1f6a8f; color: #fff; } 
@@ -41,7 +41,41 @@ html, body{
     font-size: 30px;
 }
 
+
+.cx-portugues{
+    text-align: justify;
+    width:50%;
+    color:white;
+    height: 500px;
+    font-size: 30px;
+    background-color: black;
+}
+
+
+.cx-ingles{
+    text-align: justify;
+    width:50%;
+    color:limegreen;
+    height: 400px;
+    font-size: 30px;
+    background-color: black
+}
+
+
 .fundo-branco{
      background-color: white;
      left:1.4%;
+}
+
+.fundo-branco-2{
+    background-color: white;
+    left:1.4%;
+    
+    
+}
+
+
+.texto-centraliza{
+    text-align: center;
+
 }

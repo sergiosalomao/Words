@@ -1,52 +1,75 @@
 <?php
-require_once '../DB/Conexao.php';
+require_once 'Conexao.php';
 require_once 'Crud.php';
 
 
-class RecordDAO extends CRUD {
+class RecordDAO extends CRUD
+{
 
-    public function gravar()
+    public function gravar($entidade)
     {
 
-        
-            $jogador = $_GET['jogador'];
-        
-        
-            $caractere = $_GET['char'];
-        
-        
-            $palavras = $_GET['word'];
-        
-        
-            $cps = $_GET['cps'];
-        
-        
-            $pps = $_GET['pps'];
-        
-     
-      
-
-        $sql = "INSERT INTO records (jogador,caractere,palavras,caracPorSeg,PalavraPorSeg) VALUES (?,?,?,?,?)";
+        $sql = "INSERT INTO records (jogador,totalpalavras,respondidas,corretas,erradas,nivel,exp,tempo) VALUES (?,?,?,?,?,?,?,?)";
         $stmt = Conexao::prepare($sql);
-		//cria livro e adiciona
-
-        $stmt->bindParam(1,$jogador);
-        $stmt->bindParam(2,$caractere);
-        $stmt->bindParam(3,$palavras);
-        $stmt->bindParam(4,$cps);
-        $stmt->bindParam(5,$pps);
-           
-        
+        $jogador = $entidade->getJogador();
+        $totalpalavras = $entidade->getTotalpalavras();
+        $respondidas = $entidade->getRespondidas();
+        $corretas = $entidade->getCorretas();
+        $erradas = $entidade->getErradas();
+        $nivel = $entidade->getNivel();
+        $exp = $entidade->getExp();
+        $tempo = $entidade->getTempo();
+        $stmt->bindParam(1, $jogador);
+        $stmt->bindParam(2, $totalpalavras);
+        $stmt->bindParam(3, $respondidas);
+        $stmt->bindParam(4, $corretas);
+        $stmt->bindParam(5, $erradas);
+        $stmt->bindParam(6, $nivel);
+        $stmt->bindParam(7, $exp);
+        $stmt->bindParam(8, $tempo);
         return $stmt->execute();
-        
-      
-      
     }
 
-function direciona(){
+    public function alterar($id, $entidade)
+    {
+        $sql = "UPDATE records set jogador = ?,totalpalavras = ?,respondidas =?,corretas = ?,erradas =?,nivel=?,exp=? ,tempo= ? WHERE idrecords =?";
+        $stmt = Conexao::prepare($sql);
+        $jogador = $entidade->getJogador();
+        $totalpalavras = $entidade->getTotalpalavras();
+        $respondidas = $entidade->getRespondidas();
+        $corretas = $entidade->getCorretas();
+        $erradas = $entidade->getErradas();
+        $nivel = $entidade->getNivel();
+        $exp = $entidade->getExp();
+        $tempo = $entidade->getTempo();
+        $stmt->bindParam(1, $jogador);
+        $stmt->bindParam(2, $totalpalavras);
+        $stmt->bindParam(3, $respondidas);
+        $stmt->bindParam(4, $corretas);
+        $stmt->bindParam(5, $erradas);
+        $stmt->bindParam(6, $nivel);
+        $stmt->bindParam(7, $exp);
+        $stmt->bindParam(8, $tempo);
+        $stmt->bindParam(9, $id);
+        return $stmt->execute();
+    }
 
-    header('Location: listaRecords.php');
-}
+    public function ultimoRegistro()
+    {
+        $sql = "SELECT MAX(idrecords) FROM records";
+        $stmt = Conexao::prepare($sql);
+        $stmt->execute();
+        return $stmt->fetch();
+    }
+
+    public function ListarTodosPorClassificacao()
+    {
+        $sql = "SELECT * FROM $this->tabela ORDER BY nivel DESC, exp,tempo";
+        $stmt = Conexao::prepare($sql);
+        $stmt->execute();
+        return $stmt->fetchAll();
+    }
+
 
 }
 ?>

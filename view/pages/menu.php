@@ -10,20 +10,20 @@
                     <a class="nav-link" href="/words/index.php">Inicio <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a id="menu-link-treinar" class="nav-link" href="/words/view/pages/preparaPergunta.php">Treinar</a>
+                    <a id="menu-link-treinar" class="nav-link" href="/words/view/pages/limpaTabelaPrepara.php">Treinar</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/words/view/pages/ensinar.php">Ensinar</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/words/view/pages/records.php">Records</a>
+                    <a class="nav-link" href="/words/view/pages/listaRecords.php">Records</a>
                 </li>
                 
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Sobre</a>
+                    <a class="nav-link" href="https://github.com/sergiosalomao">Sobre</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Sair</a>
+                    <a class="nav-link" href="https://github.com/sergiosalomao">Sair</a>
                 </li>
                 </ul>
             
