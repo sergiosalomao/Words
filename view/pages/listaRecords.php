@@ -60,7 +60,8 @@
       <td class="texto-centraliza"><?php echo $value->tempo ?></td>
       <td class="texto-centraliza"><?php echo number_format($value->exp, 2, '.', '') ?></td>
     </tr>
-    <button type="button" class="btn btn-success btn-sm" onclick="history.back(2)">Voltar</button>
+    <button type="button" class="btn btn-secound btn-dark" onclick="history.back(2)">Voltar</button>
+    <br><br>
 <?php endforeach; ?>
 
 <?php include 'rodape.php' ?>
