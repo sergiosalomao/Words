@@ -1,5 +1,5 @@
 # Words
-Aprenda ingles Jogando Words (JavaScript + PHP)
+Aprenda ingles Jogando Words (JavaScript + PHP PDO)
 
 <html>
     <body>
